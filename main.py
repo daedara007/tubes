@@ -1,1 +1,3 @@
-print ("Hello world")
+print ("mamang kesbor")
+def halo():
+    print("Kampret")
