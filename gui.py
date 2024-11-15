@@ -1,5 +1,6 @@
 import getpass, os, sys
-from PyQt5.QtWidgets import QApplication, QMainWindow
+from PyQt5.QtWidgets import *
+from PyQt5.QtGui import *
 
 USER_DATA_FILE = 'users.txt'
 
@@ -8,6 +9,25 @@ token = ""
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
+        self.setWindowTitle("Ingatin Dong")
+        self.setGeometry(100,100,500,500)
+        self.initUI()
+
+    def initUI(self):
+        central_widget = QWidget()
+        self.setCentralWidget(central_widget)
+
+        label1 = QLabel("1",self)
+        label2 = QLabel("2",self)
+        label3 = QLabel("3",self)
+
+        vbox = QVBoxLayout()
+
+        vbox.addWidget(label1)
+        vbox.addWidget(label2)
+        vbox.addWidget(label3)
+
+        central_widget.setLayout(vbox)
 
 def dashboard(a):
     print (f"selamat datang {token} di dashboard")
