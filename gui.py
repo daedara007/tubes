@@ -1,6 +1,9 @@
 import getpass, os, sys
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
+from PyQt5 import QtCore, QtGui
+from PyQt5.QtGui import *
+from PyQt5.QtCore import *
 
 USER_DATA_FILE = 'users.txt'
 
@@ -12,22 +15,19 @@ class MainWindow(QMainWindow):
         self.setWindowTitle("Ingatin Dong")
         self.setGeometry(100,100,500,500)
         self.initUI()
+        self.show()
 
     def initUI(self):
-        central_widget = QWidget()
-        self.setCentralWidget(central_widget)
+        self.username_input = QLineEdit(self)
+        self.layout.addWidget(self.username_input)
+        
+        push1 = QPushButton("login", self)
+        push1.setGeometry(50,200,300,50)
+        push1.clicked.connect(self.clicklogin)
 
-        label1 = QLabel("1",self)
-        label2 = QLabel("2",self)
-        label3 = QLabel("3",self)
-
-        vbox = QVBoxLayout()
-
-        vbox.addWidget(label1)
-        vbox.addWidget(label2)
-        vbox.addWidget(label3)
-
-        central_widget.setLayout(vbox)
+    
+    def clicklogin(self):
+        print ("test")
 
 def dashboard(a):
     print (f"selamat datang {token} di dashboard")
