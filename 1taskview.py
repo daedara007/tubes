@@ -2,6 +2,9 @@ import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow, QTableWidget, QTableWidgetItem, QVBoxLayout, QWidget, QComboBox
 from PyQt5.QtCore import Qt
 
+tf = ""
+token = "data/" + (tf) + "tasks.txt"
+
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -16,7 +19,7 @@ class MainWindow(QMainWindow):
         self.table_widget.setHorizontalHeaderLabels(["Nama Tugas", "Nama Mata Kuliah", "Deadline", "Status Tugas"])
 
         # Membaca data dari file
-        self.load_data_from_file('tasks.txt')
+        self.load_data_from_file(token)
 
         # Mengatur ukuran kolom
         self.table_widget.setColumnWidth(0, 150)
@@ -61,7 +64,7 @@ class MainWindow(QMainWindow):
 
     def update_status(self, row, status):
         # Update file tasks.txt setiap kali status diubah
-        self.save_data_to_file('tasks.txt')
+        self.save_data_to_file(token)
         
     def save_data_to_file(self, filename):
         try:

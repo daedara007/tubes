@@ -1,0 +1,4 @@
+tubes,alpro,2024-10-10,Sedang Dikerjakan
+tubes,kulih,2024-10-10,Sedang Dikerjakan
+responsi,kimdas,2024-11-28,Belum Dikerjakan
+catat materi,fisika,2024-5-28,Selesai

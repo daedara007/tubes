@@ -1,5 +1,9 @@
 import sys
 from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QLabel, QLineEdit, QPushButton, QDateEdit, QComboBox, QMessageBox
+from PyQt5.QtCore import QDate
+
+tf = "wak"
+token = "data/" + (tf) + "tasks.txt"
 
 class TaskManager(QWidget):
     def __init__(self):
@@ -29,6 +33,7 @@ class TaskManager(QWidget):
         self.deadline_label = QLabel('Deadline:')
         self.deadline_input = QDateEdit()
         self.deadline_input.setCalendarPopup(True)
+        self.deadline_input.setDate(QDate.currentDate()) #buat defaultnya hari ini
         layout.addWidget(self.deadline_label)
         layout.addWidget(self.deadline_input)
 
@@ -57,7 +62,7 @@ class TaskManager(QWidget):
             return
 
         # Simpan tugas ke dalam file
-        with open('tasks.txt', 'a') as file:
+        with open(token, 'a') as file:
             file.write(f"{task_name},{course_name},{deadline},{status}\n")
 
         QMessageBox.information(self, 'Success', 'Tugas berhasil ditambahkan!')
