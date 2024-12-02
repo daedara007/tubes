@@ -1,11 +1,11 @@
 import sys
-from PyQt5.QtWidgets import QApplication, QMainWindow, QTableWidget, QTableWidgetItem, QVBoxLayout, QWidget, QComboBox
+from PyQt5.QtWidgets import QApplication, QWidget, QTableWidget, QTableWidgetItem, QVBoxLayout, QComboBox, QPushButton
 from PyQt5.QtCore import Qt
 
 tf = ""
 token = "data/" + (tf) + "tasks.txt"
 
-class MainWindow(QMainWindow):
+class MainWindow(QWidget):
     def __init__(self):
         super().__init__()
 
@@ -27,13 +27,16 @@ class MainWindow(QMainWindow):
         self.table_widget.setColumnWidth(2, 100)
         self.table_widget.setColumnWidth(3, 150)
 
+        # Membuat tombol Kembali
+        self.back_button = QPushButton("Kembali")
+        self.back_button.clicked.connect(self.close)  # Menghubungkan tombol dengan fungsi close
+
         # Mengatur layout
         layout = QVBoxLayout()
         layout.addWidget(self.table_widget)
+        layout.addWidget(self.back_button)  # Menambahkan tombol ke layout
 
-        container = QWidget()
-        container.setLayout(layout)
-        self.setCentralWidget(container)
+        self.setLayout(layout)  # Mengatur layout pada QWidget
 
     def load_data_from_file(self, filename):
         try:

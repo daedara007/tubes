@@ -22,9 +22,15 @@ class TaskManager(QWidget):
         self.task_list = QListWidget()
         self.layout.addWidget(self.task_list)
 
+        #tombol hapus tugas
         self.delete_button = QPushButton('Hapus Tugas')
         self.delete_button.clicked.connect(self.delete_task)
         self.layout.addWidget(self.delete_button)
+
+        #tombol kembali
+        self.kembali_button = QPushButton("Kembali")
+        self.kembali_button.clicked.connect(self.close)
+        self.layout.addWidget(self.kembali_button)
 
         self.setLayout(self.layout)
 

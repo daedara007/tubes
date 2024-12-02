@@ -13,7 +13,7 @@ class TaskManager(QWidget):
 
     def initUI(self):
         self.setWindowTitle('Task Manager')
-        self.setGeometry(100, 100, 300, 250)
+        self.setGeometry(100, 100, 300, 300)
 
         layout = QVBoxLayout()
 
@@ -49,6 +49,11 @@ class TaskManager(QWidget):
         self.add_task_button.clicked.connect(self.add_task)
         layout.addWidget(self.add_task_button)
 
+        # Tombol untuk kembali
+        self.kembali_button = QPushButton('Kembali')
+        self.kembali_button.clicked.connect(self.close)
+        layout.addWidget(self.kembali_button)
+
         self.setLayout(layout)
 
     def add_task(self):
@@ -72,6 +77,7 @@ class TaskManager(QWidget):
         self.course_name_input.clear()
         self.deadline_input.clear()
         self.status_input.setCurrentIndex(0)
+        
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)

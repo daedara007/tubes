@@ -1,9 +1,9 @@
 import sys
-from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QTableWidget, QTableWidgetItem
+from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QTableWidget, QTableWidgetItem, QPushButton
 from datetime import datetime
 
 tf = ""
-token = "data/" + (tf) + "tasks.txt"
+token = "data/tasks.txt"
 
 class ReminderApp(QWidget):
     def __init__(self):
@@ -22,6 +22,12 @@ class ReminderApp(QWidget):
         self.table.setColumnWidth(3, 150)  # kolom status
 
         layout.addWidget(self.table)
+
+        #buat tombol kembali
+        self.kembali_button = QPushButton("Kembali")
+        self.kembali_button.clicked.connect(self.close)
+        layout.addWidget(self.kembali_button)
+
         self.setLayout(layout)
 
         self.load_tasks()
@@ -49,3 +55,5 @@ if __name__ == '__main__':
     window = ReminderApp()
     window.show()
     sys.exit(app.exec_())
+
+    
