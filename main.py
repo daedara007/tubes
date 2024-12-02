@@ -398,6 +398,10 @@ class MainWindow(QMainWindow):
         if len(password) < 8:
             QMessageBox.warning(self, "Error", "Password minimal 8 karakter.")
             return
+        
+        if password.strip() == "":
+            QMessageBox.warning(self, "Error", "Password tidak boleh hanya terdiri dari spasi.")
+            return
 
         self.save_user(username, password)
         data = open ("data/" + username + "tasks.txt","w")
