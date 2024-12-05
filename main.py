@@ -267,7 +267,7 @@ class ReminderTask(QWidget):
 class DashboardWindow(QMainWindow):
     def __init__(self,username):
         super().__init__()
-        self.setWindowTitle("Dashboard Ingatin Dong")
+        self.setWindowTitle("Dashboard Pengingat Tugas")
         self.setGeometry (300,250,400,290)
         
         #label buat selamat datang
